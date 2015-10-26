@@ -6,7 +6,7 @@
 	<artifactId>rfcampus</artifactId>
 	<name>RF-Campus</name>
 	<packaging>pom</packaging>
-
+<!-- testing -->
 
 	<!-- for maven build -->
 	<!-- <distributionManagement> <repository> <id>rfcampus</id> <url>http://localhost:8080/rfcampuspresentation/</url> 
