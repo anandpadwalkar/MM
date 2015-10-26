@@ -8,8 +8,21 @@
 	<packaging>pom</packaging>
 
 
-	<!-- for maven build <distributionManagement> <repository> <id>rfcampus</id> 
-		<url>http://localhost:8080/rfcampuspresentation/</url> </repository> </distributionManagement> -->
+	<!-- for maven build -->
+	<!-- <distributionManagement> <repository> <id>rfcampus</id> <url>http://localhost:8080/rfcampuspresentation/</url> 
+		</repository> </distributionManagement> -->
+
+	<distributionManagement>
+		<repository>
+			<id>rfcampus</id>
+			<name>
+			Github Deployment of Multi-Module Project
+			</name>
+			<url>http://localhost:8080/rfcampuspresentation</url>
+		</repository>
+	</distributionManagement>
+	
+	
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>
 		<java-version>1.6</java-version>
@@ -157,6 +170,32 @@
 					<mainClass>org.test.int1.Main</mainClass>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+			</plugin>
+		 	
+		 	<!--  for pushing Multi Mopdules in Github -->
+		 	<plugin>
+				<groupId>com.github.github</groupId>
+				<artifactId>site-maven-plugin</artifactId>
+				<version>0.7</version>
+				<configuration>
+				<message>Deployment of Multi Modules Project</message>
+				<path>http://github.com/anandpadwalkar/mm.git</path>
+				<merge>true</merge>
+				</configuration>
+			<executions>
+			<execution>
+			<id>github-site</id>
+			<goals>
+				<goal>site</goal>
+			</goals>
+			<phase>site-deploy</phase>
+			</execution>
+			</executions>
+		 
+		 	</plugin> 
 		</plugins>
 	</build>
 	<modules>
